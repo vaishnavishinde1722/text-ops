@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Operations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Itim&family=Prociono&display=swap" rel="stylesheet">
+     <style>
+        h1{
+            text-align: center;
+            font-family:"Funnel Display", sans-serif;
+            font-size: 40px;
+        }
+        body{
+            background-color:#ccffb3;
+        }
+        .text-area{
+            width: 70%;
+            height: 150px;
+            margin: 20px auto;
+            display: block;
+            border: 3px solid #4ce600;
+            border-radius: 10px;
+            font-size: 20px;
+            font-family:"Funnel Display", sans-serif;
+            padding: 10px;
+        }
+        .btn{
+            height: 50px;
+            width: 200px;
+            font-size: 20px;
+            margin: 20px;
+            background-color: #49e600;
+            font-family:"Funnel Display", sans-serif;
+            border: 3px solid #39b300;
+            border-radius: 10px;
+        }
+        .btn:hover{
+            background-color: #51ff00;
+            box-shadow: 0.5 1 white;
+            transition: 0.3s;
+            border: none;
+        }
+        .btn-container{
+            display: flex;
+            justify-content:center;
+            margin: 20px;
+            flex-wrap: wrap;
+        }
+       
+    </style>
+
+</head>
+<body>
+    <h1>Text Operations &nbsp;<img src="./window-display.png" height="45px" width="45px"></h1>
+    <input type="text" class="text-area" id="input-text" placeholder="enter input text here..."><br>
+    <input type="text" class="text-area" id="output-text" placeholder="output text will be displayed here">
+    <div class="btn-container">
+        <button class="btn" onclick="textops('uppercase')"><img src="./letter-u.png" height="25px" width="25px">pper Case</button>
+        <button class="btn" onclick="textops('lowercase')"><img src="./letter-l.png" height="25px" width="25px">ower Case</button>
+        <button class="btn" onclick="textops('wordcount')"><img src="./letter-w.png" height="25px" width="25px">ord Count</button>
+        <button class="btn" onclick="textops('chcount')"><img src="./letter-c.png" height="25px" width="25px">haracter Count</button>
+    </div>
+
+    <script>
+        function textops(mode)
+        {
+            const input=document.getElementById('input-text')
+            const output=document.getElementById('output-text')
+            switch(mode)
+            {
+                case "uppercase":
+                    output.value=input.value.toUpperCase();
+                    break;
+                case "lowercase":
+                    output.value=input.value.toLowerCase();
+                    break;
+                case "wordcount":
+                    const total=input.value.split(" ").length;
+                    output.value=`word count:${total}`;
+                    break;
+                case "chcount":
+                    const count=input.value.length;
+                    output.value=`character count:${count}`;
+                    break;                 
+            }
+        }
+
+    </script>
+
+</body>
+</html>
